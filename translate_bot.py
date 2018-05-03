@@ -142,7 +142,7 @@ def update_username(message):
 def send_instructions(message):
     """/contribute."""
     bot.send_message(message.chat.id, """\
-I can help you translate contents to Tamil seamlessly.
+I can help you translate contents to Malayalam seamlessly.
 
 You can control me by sending these commands:
 
@@ -185,10 +185,10 @@ def get_verified(message):
                 % user.first_name)
             send_instructions(message)
         else:
-            text = "%s - %s\nஇது சரியான தமிழாக்கமா?" % (result.name,
+            text = "%s - %s\nതർജ്ജമ ശരിയാണോ ?" % (result.name,
                                                         result.translation)
             markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
-            markup.add('சரி', 'தவறு')
+            markup.add('ശരി', 'തെറ്റ്')
             user.verify = result.osm_id
             user.v_index = result.index
             session.commit()

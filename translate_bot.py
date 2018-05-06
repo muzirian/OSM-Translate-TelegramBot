@@ -204,13 +204,13 @@ def commit_verify(message):
     if message.text.lower() not in available_commands:
         user = session.query(User).filter_by(
             user_id=message.from_user.id).first()
-        if message.text == 'சரி':
+        if message.text == 'ശരി':
             row = session.query(Data).filter_by(osm_id=user.verify).first()
             row.verified += 1
             user.verify_count += 1
             session.commit()
             get_verified(message)
-        elif message.text == 'தவறு':
+        elif message.text == 'തെറ്റ്':
             row = session.query(Data).filter_by(osm_id=user.verify).first()
             row.verified -= 1
             user.verify_count += 1
